@@ -1,0 +1,14 @@
+[package]
+authors     = ["katelyn martin <me+cratelyn@katelyn.world>"]
+description = "a small timeout fuse for exiting deadlocked tests"
+edition     = "2021"
+license     = "MIT"
+name        = "aquarius-test-timeout"
+publish     = false
+repository  = "https://github.com/cratelyn/aquarius"
+version     = "0.1.0"
+
+[dependencies]
+futures = { workspace = true }
+tokio   = { workspace = true }
+tracing = { workspace = true }

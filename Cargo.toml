@@ -1,0 +1,74 @@
+[package]
+authors     = ["katelyn martin <me+cratelyn@katelyn.world>"]
+description = "a small tool for load-testing http/2 servers"
+edition     = "2021"
+license     = "MIT"
+name        = "aquarius"
+publish     = false
+repository  = "https://github.com/cratelyn/aquarius"
+version     = "0.1.0"
+
+[dependencies]
+clap               = { workspace = true }
+comfy-table        = { workspace = true }
+futures            = { workspace = true }
+http               = { workspace = true }
+http-body-util     = { workspace = true }
+hyper              = { workspace = true }
+hyper-util         = { workspace = true }
+lazy_static        = { workspace = true }
+pin-project        = { workspace = true }
+textplots          = { workspace = true }
+tap                = { workspace = true }
+tokio              = { workspace = true }
+tracing            = { workspace = true }
+tracing-subscriber = { workspace = true }
+url                = { workspace = true }
+
+[dev-dependencies]
+aquarius-test-server     = { workspace = true }
+aquarius-test-subscriber = { workspace = true }
+aquarius-test-timeout    = { workspace = true }
+
+# === workspace ===
+
+[workspace]
+members = ["crates/test-server", "crates/test-subscriber", "crates/test-timeout"]
+
+[workspace.dependencies]
+aquarius-test-server     = { path = "./crates/test-server" }
+aquarius-test-subscriber = { path = "./crates/test-subscriber" }
+aquarius-test-timeout    = { path = "./crates/test-timeout" }
+comfy-table              = { version = "7.1.1" }
+futures                  = { version = "0.3.30" }
+http                     = { version = "1.1.0" }
+http-body-util           = { version = "0.1.2" }
+lazy_static              = { version = "1.5.0" }
+pin-project              = { version = "1.1.5" }
+textplots                = { version = "0.8.6" }
+tap                      = { version = "1.0.1" }
+tracing                  = { version = "0.1.40" }
+url                      = { version = "2.5.2" }
+
+[workspace.dependencies.clap]
+version  = "4.5.8"
+features = ["derive"]
+
+[workspace.dependencies.hyper]
+version          = "1.4.0"
+default-features = false
+features         = ["client", "http2", "server"]
+
+[workspace.dependencies.hyper-util]
+version          = "0.1.6"
+default-features = false
+features         = ["tokio"]
+
+[workspace.dependencies.tokio]
+version          = "1.38.0"
+default-features = false
+features         = ["macros", "rt", "rt-multi-thread"]
+
+[workspace.dependencies.tracing-subscriber]
+version  = "0.3.18"
+features = ["env-filter"]

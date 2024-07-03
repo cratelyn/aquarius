@@ -1,0 +1,13 @@
+[package]
+authors     = ["katelyn martin <me+cratelyn@katelyn.world>"]
+description = "a tracing-subscriber for use in aquarius tests."
+edition     = "2021"
+license     = "MIT"
+name        = "aquarius-test-subscriber"
+publish     = false
+repository  = "https://github.com/cratelyn/aquarius"
+version     = "0.1.0"
+
+[dependencies]
+tracing            = { workspace = true }
+tracing-subscriber = { workspace = true }
